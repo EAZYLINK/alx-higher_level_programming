@@ -1,13 +1,13 @@
 #include "lists.h"
 
 /**
- * insert_number - inserts a node to a list
+ * insert_node - inserts a node to a list
  * @head: node head
  * @number: number of nodes
  * Return: listint_t
  */
 
-listint_t *insert_number(listint_t **head, int number)
+listint_t *insert_node(listint_t **head, int number)
 {
 listint_t *new;
 listint_t *current;
