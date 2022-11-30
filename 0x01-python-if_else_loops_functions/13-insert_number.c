@@ -7,7 +7,7 @@
  * Return: listint_t
  */
 
-listint_t *insert_number(listint-t **head, int number)
+listint_t *insert_number(listint_t **head, int number)
 {
 listint_t *new;
 listint_t *current;
