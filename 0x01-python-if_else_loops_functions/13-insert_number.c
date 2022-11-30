@@ -1,37 +1,45 @@
 #include "lists.h"
 
 /**
- * insert_node - inserts a node to a list
- * @head: node head
- * @number: number of nodes
- * Return: listint_t
+ * insert_node - Entry Point
+ *
+ * @head: the list passed in
+ * @number: value of the new node
+ *
+ * Description: Inserts a node in an ordered linked list
+ *
+ * Return:  The address of the new node or NULL if failure
  */
 
 listint_t *insert_node(listint_t **head, int number)
 {
-listint_t *new;
-listint_t *current;
-current = *head;
-new = malloc(sizeof(listint_t));
-if (new == NULL)
+listint_t *newNode, *firstNode;
+
+firstNode = *head;
+
+newNode = malloc(sizeof(listint_t));
+if (newNode == NULL)
 return (NULL);
-new->n = number;
+newNode->n = number;
+
 if (*head == NULL || (*head)->n > number)
 {
-new->next = *head;
-*head = new;
-return (new);
+newNode->next = *head;
+*head = newNode;
+return (newNode);
 }
-while (current->next != NULL)
-if ((current->next)->n >= number)
+
+while (firstNode->next != NULL)
 {
-new->next = current->next;
-current->next = new;
-return (new);
+if ((firstNode->next)->n >= number)
+{
+newNode->next = firstNode->next;
+firstNode->next = newNode;
+return (newNode);
 }
-current = current->next;
+firstNode = firstNode->next;
 }
-current->next = new;
-new->next = NULL;
-return (new);
+firstNode->next = newNode;
+newNode->next = NULL;
+return (newNode);
 }
