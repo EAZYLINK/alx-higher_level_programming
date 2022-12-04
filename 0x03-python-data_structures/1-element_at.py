@@ -1,6 +1,10 @@
 def element_at(my_list, idx):
   if idx < 0:
-    reurn "None"
+    str = "None"
+    return str
   if idx > len(my_list):
-    return "None"
-  return my_list[idx]
+    str = "None"
+    return str
+  else:
+    str = my_list[idx]
+    return str
