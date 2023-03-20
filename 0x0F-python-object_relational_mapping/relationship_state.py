@@ -3,8 +3,7 @@
 Defines a state model that contain the class definition
  of a State and an instance Base = declarative_base()
 """
-from lib2to3.pytree import Base
-from sre_parse import State
+
 from unicodedata import name
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
@@ -28,5 +27,4 @@ class State(Base):
     __tablename__ = "states"
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-
     cities = relationship("City", backref="state", cascade="all, delete")
