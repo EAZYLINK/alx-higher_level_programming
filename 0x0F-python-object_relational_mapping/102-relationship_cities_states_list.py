@@ -15,6 +15,7 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    for city in session.query(City).order_by(City.id):
-        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
+    
+    for state in session.query(State).order_by(State.id):
+        for city_in in state.cities:
+            print("{}: {} -> {}".format(city_in.id, city_in.name, state.name))
