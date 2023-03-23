@@ -7,6 +7,7 @@ from relationship_state import Base
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
+
 class City(Base):
     """
     inherits from Base (imported from model_state)
